@@ -1,0 +1,51 @@
+.nav-btn-icon-container {
+  background-color: #333333b0;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  height: 4.8vw;
+  width: 4.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 99;
+  mix-blend-mode: difference;
+  position: relative;
+}
+
+.nav-btn-icon-container::after {
+  content: "";
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  scale: 1;
+  opacity: 0;
+  border-radius: 50%;
+  border: 2px dashed #757575;
+  mix-blend-mode: difference;
+  transition: all 0.5s ease;
+}
+
+.nav-btn-icon-container:hover::after {
+  height: 120%;
+  width: 120%;
+  scale: 1;
+  opacity: 1;
+  animation: rotationAnimation 18s infinite linear;
+}
+
+@keyframes rotationAnimation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.nav-btn-icon-container i {
+  font-size: 30px;
+}

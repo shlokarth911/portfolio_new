@@ -1,0 +1,16 @@
+.missions-header-container {
+  height: 100vh;
+  position: relative;
+}
+
+.missions-header-container h1 {
+  position: absolute;
+  pointer-events: none;
+  letter-spacing: -20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20vw;
+  color: #555;
+  font-weight: 300;
+}

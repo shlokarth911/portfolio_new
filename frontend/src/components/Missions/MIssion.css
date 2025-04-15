@@ -1,0 +1,12 @@
+.missions-container {
+  width: 100%;
+  padding: 5%;
+}
+
+.mission-card-container {
+  height: 100%;
+  gap: 22px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
