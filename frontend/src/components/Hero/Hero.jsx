@@ -1,17 +1,19 @@
 import React from "react";
 import "./Hero.css";
-import HeroVideo from "./HeroVideo";
+import HeroPhoto from "./HeroPhoto";
 
 const Hero = () => {
   return (
     <div className="hero">
-      <h1 className="header">Indian Space Research Organisation</h1>
+      <span>Hi, I'm</span>
+      <h1 className="header"> Shlok Arth</h1>
       <p>
-        "From Earth’s soil to the cosmos, ISRO ignites the spirit of
-        exploration—turning dreams into orbits, uniting science with the soul of
-        a nation.
+        "I&apos;m a full-stack developer passionate about blending creativity
+        with technology, building scalable apps, interactive dashboards, and
+        sleek portfolios using MERN, React, Next.js, GSAP, and modern UI
+        tools.""
       </p>
-      <HeroVideo />
+      <HeroPhoto />
     </div>
   );
 };

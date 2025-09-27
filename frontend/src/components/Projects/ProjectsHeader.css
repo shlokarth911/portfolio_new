@@ -1,9 +1,9 @@
-.missions-header-container {
+.projects-header-container {
   height: 100vh;
   position: relative;
 }
 
-.missions-header-container h1 {
+.projects-header-container h1 {
   position: absolute;
   pointer-events: none;
   letter-spacing: -20px;

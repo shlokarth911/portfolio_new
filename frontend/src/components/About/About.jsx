@@ -22,22 +22,20 @@ const About = () => {
   return (
     <section className="about-section">
       <div className="about-part-1">
-        <div className="text-content headline">EXPLORING THE COSMOS</div>
-        <div className="text-content tagline">
-          — ISRO, WHERE INNOVATION MEETS INFINITY
-        </div>
+        <div className="text-content headline">CRAFTING DIGITAL EXCELLENCE</div>
+        <div className="text-content tagline">— PIXELS MEET PURPOSE</div>
         <div className="para-content">
           <p>
-            ISRO, India’s pioneering space agency, has revolutionized space
-            exploration since 1969. From landmark missions like Chandrayaan-3
-            and Mangalyaan to advancing human spaceflight (Gaganyaan) and
-            satellite navigation (NavIC), we merge cutting-edge innovation with
-            affordability to drive national progress and global collaboration.
-            Through satellite technology, we empower agriculture, disaster
-            resilience, and climate action, guided by the ethos स्वदेशे
-            सर्वजनाभ्युदय (Prosperity to All) and वसुधैव कुटुम्बकम (The World Is
-            One Family). At ISRO, we explore the cosmos to transform life on
-            Earth.
+            With a strong foundation in full-stack development, I specialize in
+            building intuitive, high-performing applications that merge
+            functionality with design. My expertise spans MongoDB, Express,
+            React, and Node.js, along with frameworks like Next.js for modern
+            frontends. I&apos;m also deeply interested in animation and
+            interaction, using GSAP and ShadCN UI to craft immersive user
+            experiences. Beyond technical skills, I thrive on solving real-world
+            problems—whether developing scalable dashboards, interactive
+            educational tools, or creative portfolios that leave a lasting
+            impression.
           </p>
         </div>
       </div>

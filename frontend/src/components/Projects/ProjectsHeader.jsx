@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import "./MissionsHeader.css";
+import "./ProjectsHeader.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MissionsHeader = () => {
+const ProjectsHeader = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const MissionsHeader = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "bottom+=300% top",
+          end: "bottom+=250% top",
           scrub: 0.1,
         },
       });
@@ -43,10 +43,10 @@ const MissionsHeader = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="missions-header-container">
-      <h1>Missions</h1>
+    <section ref={containerRef} className="projects-header-container">
+      <h1>Projects</h1>
     </section>
   );
 };
 
-export default MissionsHeader;
+export default ProjectsHeader;

@@ -1,15 +1,15 @@
-.updates-container {
+.skills-container {
   height: 100vh;
   position: relative;
 }
 
-.updates-container h1 {
+.skills-container h1 {
   font-size: 10vw;
   font-family: sans-serif;
   position: absolute;
   width: 50%;
   top: 20%;
-  line-height: 80%;
+  line-height: 90%;
   -webkit-text-stroke: 2px #333;
   color: transparent;
   left: 5%;

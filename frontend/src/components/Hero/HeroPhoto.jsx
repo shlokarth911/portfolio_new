@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import "./HeroVideo.css";
+import "./HeroPhoto.css";
+import heroImage from "../../assets/hero image.png";
 
-const HeroVideo = () => {
+const HeroPhoto = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const containerRef = useRef(null);
@@ -16,7 +17,7 @@ const HeroVideo = () => {
       containerRef.current,
       {
         width: "80%",
-        borderRadius: "17px",
+        borderRadius: "50px",
         filter: "grayscale(0.8)",
       },
       {
@@ -106,31 +107,32 @@ const HeroVideo = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={containerRef}
+      onClick={() => (window.location = "mailto:shlokarth911@gmail.com")}
     >
-      <img
-        src="https://www.isro.gov.in/media_isro/image/index/GSLV_F15_NVS_02/Post_launch/01.jpg"
-        alt=""
-      />
+      <img src={heroImage} alt="" />
 
       <div className="cursor" ref={cursorRef}>
         <span onMouseMove={handleInnerMouseMove} ref={textRef}>
-          Watch Now
+          Mail Me
         </span>
       </div>
 
       <div className="about-video">
-        <h1>100th launch from Sriharikota</h1>
+        <h1>A bit about me</h1>
 
         <p>
-          ISRO is preparing for its landmark 100th launch from Sriharikota. GSLV
-          F15 will lift-off from the second launch pad at 06:23 hrs on January
-          29, 2025, carrying the NVS-02 navigation satellite. This will be the
-          100th launch to lift-off from Sriharikota. Over a span of 99 launches,
-          various missions have been carried out from Sriharikota.
+          I&apos;m a passionate full-stack developer driven by creativity,
+          problem-solving, and clean design. Skilled in the MERN stack, Next.js,
+          GSAP, and ShadCN UI, I craft seamless digital experiences that blend
+          performance with aesthetics. From e-commerce platforms and delivery
+          dashboards to educational apps and interactive portfolios, I enjoy
+          building impactful projects that engage users. With a focus on
+          innovation and scalability, I aim to deliver solutions that not only
+          work but also inspire.
         </p>
       </div>
     </div>
   );
 };
 
-export default HeroVideo;
+export default HeroPhoto;

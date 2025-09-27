@@ -1,9 +1,9 @@
-.missions-container {
+.projects-container {
   width: 100%;
   padding: 5%;
 }
 
-.mission-card-container {
+.project-card-container {
   height: 100%;
   gap: 22px;
   display: flex;

@@ -2,37 +2,37 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./Updates.css";
-import UpdateCard from "./UpdateCard";
+import "./Skills.css";
+import SkillsCard from "./SkillsCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Sample dynamic data and dynamic grid placement pattern
-const updatesData = [
+const skillsData = [
   {
-    title: "GSLV-F15 / NVS-02 MISSION",
+    title: "Full-Stack Development",
     description:
-      "GSLV-F15 is the 17th flight of India's Geosynchronous Satellite Launch Vehicle (GSLV) and 11th flight with Indigenous Cryo stage.",
+      "I build scalable web applications using the MERN stack (MongoDB, Express, React, Node.js). From robust backends to dynamic frontends, I ensure seamless performance across the stack.",
   },
   {
-    title: "PSLV C60/SPADEX Mission",
+    title: "UI/UX & Animations",
     description:
-      "SpaDeX mission is a cost-effective technology demonstrator mission for the demonstration of in-space docking using two small spacecraft launched by PSLV.",
+      "I create interactive, visually appealing interfaces with GSAP, ShadCN UI, and custom design principles. My focus is on delivering experiences that feel smooth, engaging, and modern.",
   },
   {
-    title: "PSLV-C59/Proba-3 Mission",
+    title: "Performance & Scalability",
     description:
-      "PSLV-C59 vehicle carried Proba-3 spacecraft into a highly elliptical orbit as a Dedicated commercial mission of NewSpace India Limited (NSIL) on December 05, 2024.",
+      "I optimize applications for speed and scalability, ensuring they can handle growth without compromising user experience or efficiency.",
   },
   {
-    title: "SSLV-D3/EOS-08 Mission",
+    title: "Tools & Workflow",
     description:
-      "The third developmental flight of SSLV is successfully launched on August 16, 2024.This flight completes the SSLV Development Project and enables operational missions by Indian industry and NSIL.",
+      "I'm comfortable with Git, VS Code, APIs, and modern development workflows. I value clean, maintainable code and effective collaboration.",
   },
   // Additional cards will follow the same dynamic positioning logic.
 ];
 
-const Upadates = () => {
+const Skills = () => {
   const containerRef = useRef(null);
 
   // Define a repeating pattern for dynamic grid positioning (if needed)
@@ -79,10 +79,10 @@ const Upadates = () => {
   }, []);
 
   return (
-    <div className="updates-container" ref={containerRef}>
-      <h1>Recent Updates</h1>
+    <div className="skills-container" ref={containerRef}>
+      <h1>My SkillSet</h1>
       <div className="card-container">
-        {updatesData.map((update, idx) => {
+        {skillsData.map((update, idx) => {
           // For dynamic grid positioning, compute the cycle and position.
           // (This part is optional if you already have a fixed grid pattern.)
           const cycle = Math.floor(idx / pattern.length);
@@ -95,7 +95,7 @@ const Upadates = () => {
           };
 
           return (
-            <UpdateCard
+            <SkillsCard
               key={idx}
               title={update.title}
               description={update.description}
@@ -108,4 +108,4 @@ const Upadates = () => {
   );
 };
 
-export default Upadates;
+export default Skills;

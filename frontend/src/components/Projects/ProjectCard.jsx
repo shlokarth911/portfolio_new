@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import "./MissionCard.css";
+import "./ProjectCard.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MissionCard = ({ title, desc, item, img }) => {
+const ProjectsCard = ({ title, desc, item, img, gitLink }) => {
   // Create a reference to the mission card element
   const cardRef = useRef(null);
 
@@ -27,8 +27,8 @@ const MissionCard = ({ title, desc, item, img }) => {
   console.log(item);
 
   return (
-    <div className="mission-card" ref={cardRef}>
-      <div className="mission-card-part-1">
+    <div className="project-card" ref={cardRef}>
+      <div className="project-card-part-1">
         <h1>{title}</h1>
         <p>{desc}</p>
         <ul>
@@ -36,13 +36,15 @@ const MissionCard = ({ title, desc, item, img }) => {
             return <li>{item}</li>;
           })}
         </ul>
-        <button>Know More</button>
+        <button onClick={() => window.open(gitLink, "_blank")}>
+          Know More
+        </button>
       </div>
-      <div className="mission-card-part-2">
-        <img src={img} alt="" />
+      <div className="project-card-part-2">
+        <img src={img} alt="currently unavailable" />
       </div>
     </div>
   );
 };
 
-export default MissionCard;
+export default ProjectsCard;
