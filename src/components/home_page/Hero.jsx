@@ -1,22 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
 import Spline from "@splinetool/react-spline";
 import AnimatedButton from "../ui/AnimatedButton";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 const Hero = () => {
+  const modelRef = useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.to(modelRef.current, {
+      display: "none",
+      opacity: "0",
+      scrollTrigger: {
+        trigger: modelRef.current,
+        start: "top -40%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
+
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       {/* Spline background: hidden on small screens for performance */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none -z-10">
-        {/* <Spline
+      <div
+        ref={modelRef}
+        className="hidden md:block absolute inset-0 pointer-events-none -z-10"
+      >
+        <Spline
           className="w-full h-full"
-          scene="https://prod.spline.design/Ggs-lPX-bIWKeWmm/scene.splinecode"
-        /> */}
+          scene="https://prod.spline.design/GTbMCAuRC-c5Ya6m/scene.splinecode"
+        />
       </div>
 
       <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
-        <div className="w-full max-w-6xl text-center">
+        <div className="w-full max-w-6xl text-center ">
           <h3
-            className="font-display font-extralight text-neutral-300 mb-2"
+            className="font-display font-extralight text-neutral-300 mb-2 mix-blend-difference"
             style={{ fontSize: "clamp(1rem, 2.2vw, 1.5rem)" }}
           >
             Hi, I'm

@@ -72,6 +72,7 @@ const AnimatedButton = ({ text, link }) => {
             transition-colors duration-300
             focus:outline-none focus:ring-2 focus:ring-amber-300/40
             overflow-hidden
+            backdrop-blur-xl
           "
         >
           <div

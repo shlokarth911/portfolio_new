@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section className="mt-20 flex flex-col items-center justify-center">
       <div className="p-4 flex flex-col items-center max-w-[940px] w-full border-t border-neutral-200/10 md:py-[4.5rem]">
-        <p className="font-display md:text-3xl sm:text-2xl text-center text-neutral-100  max-w-[56rem]">
+        <p className="font-display md:text-3xl sm:text-2xl text-center text-neutral-100  max-w-[56rem] font-light">
           I&apos;m a{" "}
           <span className="italic text-amber-400 text-shadow-amber-400/50 text-shadow-lg">
             front-end developer

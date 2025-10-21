@@ -21,7 +21,7 @@ const Footer = () => {
     <footer className="w-full font-display relative overflow-hidden flex items-center justify-end flex-col">
       {/* large faded text behind */}
       <h1
-        className="w-full  transform translate-y-[40%] font-extralight font-display tracking-widest text-[12vw] text-[#979797] text-center -z-10 select-none pointer-events-none
+        className="w-full  transform translate-y-[40%] font-extralight font-display tracking-widest text-[12vw] text-[#979797] text-center  
                    md:text-[12vw] sm:text-[15vw]"
         aria-hidden
       >
@@ -30,9 +30,9 @@ const Footer = () => {
 
       {/* main contents */}
       <div
-        className="w-full py-2 flex flex-col md:flex-row items-center
+        className="w-full z-40 py-2 flex flex-col md:flex-row items-center
                    border-t border-t-[#333]
-                   bg-[rgba(17,17,17,0.356)] backdrop-blur-[50px] px-4"
+                   bg-[rgba(17,17,17,0.5)] backdrop-blur-lg px-4"
         style={{ height: "auto" }}
       >
         {/* part1 — links */}
