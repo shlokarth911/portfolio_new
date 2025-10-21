@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "title": "Gathr",
+      "para": " Gathr is a modern web platform designed to bring people together by simplifying event organization and community engagement. It allows users to create, discover, and join events, local meetups and workshops to large conferences all in one seamless interface. Built with React and Firebase, Gathr emphasizes real-time updates, intuitive design, and smooth collaboration tools to help users connect effortlessly. The project's goal is to make gathering whether digital or physical easier, smarter, and more meaningful.",
+      "img": "https://images.unsplash.com/photo-1757073510415-e333cdec88c3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "link": "https://github.com/shlokarth911/gathr"
+    },
+
+    {
+      "title": "Gathr",
+      "para": " Gathr is a modern web platform designed to bring people together by simplifying event organization and community engagement. It allows users to create, discover, and join events, local meetups and workshops to large conferences all in one seamless interface. Built with React and Firebase, Gathr emphasizes real-time updates, intuitive design, and smooth collaboration tools to help users connect effortlessly. The project's goal is to make gathering whether digital or physical easier, smarter, and more meaningful.",
+      "img": "https://images.unsplash.com/photo-1757073510415-e333cdec88c3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "link": "https://github.com/shlokarth911/gathr"
+    },
+
+    {
+      "title": "Gathr",
+      "para": " Gathr is a modern web platform designed to bring people together by simplifying event organization and community engagement. It allows users to create, discover, and join events, local meetups and workshops to large conferences all in one seamless interface. Built with React and Firebase, Gathr emphasizes real-time updates, intuitive design, and smooth collaboration tools to help users connect effortlessly. The project's goal is to make gathering whether digital or physical easier, smarter, and more meaningful.",
+      "img": "https://images.unsplash.com/photo-1757073510415-e333cdec88c3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "link": "https://github.com/shlokarth911/gathr"
+    },
+
+    {
+      "title": "Gathr",
+      "para": " Gathr is a modern web platform designed to bring people together by simplifying event organization and community engagement. It allows users to create, discover, and join events, local meetups and workshops to large conferences all in one seamless interface. Built with React and Firebase, Gathr emphasizes real-time updates, intuitive design, and smooth collaboration tools to help users connect effortlessly. The project's goal is to make gathering whether digital or physical easier, smarter, and more meaningful.",
+      "img": "https://images.unsplash.com/photo-1757073510415-e333cdec88c3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "link": "https://github.com/shlokarth911/gathr"
+    }
+  ]
+}
