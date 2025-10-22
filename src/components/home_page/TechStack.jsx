@@ -62,10 +62,9 @@ const TechStack = () => {
         {socialsData.map((item, idx) => (
           <button
             key={idx}
-            className="group relative overflow-hidden  border border-[#333] p-[6%] flex flex-col justify-between items-start backdrop-blur-sm bg-transparent transition-all duration-500"
+            className="group relative overflow-hidden  border border-[#333] p-[6%] flex flex-col justify-between items-start backdrop-blur-xl bg-transparent transition-all duration-500"
             aria-label={item.title}
           >
-            {/* overlay element (replaces ::after) */}
             <span
               aria-hidden
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full  border border-transparent transition-all duration-500 pointer-events-none z-10"

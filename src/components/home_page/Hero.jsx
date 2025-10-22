@@ -63,8 +63,8 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-wrap justify-center gap-3 items-center px-4">
-        <AnimatedButton link={"contact"} text={"Get in Touch"} />
-        <AnimatedButton link={"projects"} text={"Projects"} />
+        <AnimatedButton link={"/contact"} text={"Get in Touch"} />
+        <AnimatedButton link={"/work"} text={"Projects"} />
       </div>
     </section>
   );

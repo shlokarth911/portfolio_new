@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Navbar from "./components/ui/Navbar";
 import Contact from "./pages/Contact";
 import Work from "./pages/Work";
+import ScrollWatcher from "./components/ui/ScrollWatcher";
 
 export default function App() {
   const location = useLocation();
@@ -69,6 +70,8 @@ export default function App() {
     <>
       {/* Example nav (you can keep your existing nav) */}
       <Navbar />
+
+      <ScrollWatcher />
 
       {/* Wrapper that GSAP animates in/out */}
       <div

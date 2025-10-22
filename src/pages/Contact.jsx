@@ -24,7 +24,7 @@ export default function Contact() {
     },
     {
       title: "LinkedIn",
-      link: "https://www.linkedin.com/in/shlokarth911/",
+      link: "https://www.linkedin.com/in/shlok-arth-08494a2b9/",
       Icon: Linkedin,
     },
     {

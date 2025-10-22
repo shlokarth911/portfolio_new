@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/ui/Footer";
 
 // Data for the work/portfolio items
 const workItems = [
@@ -67,26 +68,28 @@ const WorkCard = ({ imageUrl, title, category, year }) => (
 const Work = () => {
   return (
     // Added more padding and min-height for better spacing
-    <div className="min-h-screen pt-28 p-4 sm:p-6 md:p-8 font-display text-neutral-100">
-      <div className="container mx-auto">
-        {/* Responsive heading */}
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl  tracking-wide mb-8 md:mb-12">
-          WORK
-        </h1>
-
-        {/* Responsive grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {workItems.map((item, index) => (
-            <WorkCard
-              key={index}
-              title={item.title}
-              category={item.category}
-              year={item.year}
-              imageUrl={item.imageUrl}
-            />
-          ))}
+    <div>
+      <div className="min-h-screen pt-28 p-4 sm:p-6 md:p-8 font-display text-neutral-100">
+        <div className="container mx-auto">
+          {/* Responsive heading */}
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl  tracking-wide mb-8 md:mb-12">
+            WORK
+          </h1>
+          {/* Responsive grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {workItems.map((item, index) => (
+              <WorkCard
+                key={index}
+                title={item.title}
+                category={item.category}
+                year={item.year}
+                imageUrl={item.imageUrl}
+              />
+            ))}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -16,15 +16,12 @@ export default function Services({ className = "" }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // clear any previous refs
     const cards = cardRefs.current.filter(Boolean);
 
     function initCardAnimation() {
-      // Kill previous triggers (safe to call repeatedly)
       ScrollTrigger.getAll().forEach((t) => t.kill());
       gsap.killTweensOf(cards);
 
-      // only animate on wide screens (desktop behaviour)
       if (window.innerWidth > 768 && cards.length) {
         gsap.from(cards, {
           y: 100,
@@ -34,10 +31,8 @@ export default function Services({ className = "" }) {
           stagger: 0.12,
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 90%",
+            start: "top 70%",
             end: "top 60%",
-            // scroller: defaults to document — keep default for simplicity
-            toggleActions: "play none none reverse",
           },
         });
       } else {

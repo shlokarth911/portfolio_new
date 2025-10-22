@@ -15,12 +15,11 @@ export default function IntroParasGSAP() {
     function splitWords(el) {
       if (!el) return [];
       const text = el.textContent.trim();
-      const words = text.split(/(\s+)/); // keep spaces so we can rebuild
+      const words = text.split(/(\s+)/);
       el.innerHTML = "";
       const wordNodes = [];
       words.forEach((w) => {
         if (w.match(/\s+/)) {
-          // preserve spacing as a text node
           el.appendChild(document.createTextNode(w));
         } else {
           const span = document.createElement("span");
@@ -38,7 +37,7 @@ export default function IntroParasGSAP() {
     const leftWords = splitWords(leftParaRef.current);
     const rightWords = splitWords(rightParaRef.current);
 
-    // timeline: reveal words one-by-one, with small stagger and slight pop
+    // GSAP Timeline for word reveals
     const t = gsap.timeline({ defaults: { ease: "power2.out" } });
     t.to(
       leftWords,
@@ -50,8 +49,6 @@ export default function IntroParasGSAP() {
       },
       0.2
     );
-
-    // start right paragraph slightly after left begins (overlap a bit for rhythm)
     t.to(
       rightWords,
       {
@@ -63,9 +60,9 @@ export default function IntroParasGSAP() {
       "<0.6"
     );
 
-    // small caret blink on left paragraph (subtle)
+    // Caret blink animation
     const caret = document.createElement("span");
-    caret.className = "ml-1 inline-block w-1 h-5 align-middle  opacity-0";
+    caret.className = "ml-1 inline-block w-1 h-5 align-middle opacity-0";
     caret.setAttribute("aria-hidden", "true");
     leftParaRef.current.appendChild(caret);
     gsap.to(caret, {
@@ -87,8 +84,13 @@ export default function IntroParasGSAP() {
 
     function onPointerMove(e) {
       const rect = wrap.getBoundingClientRect();
-      const px = (e.clientX ?? (e.touches && e.touches[0].clientX)) - rect.left;
-      const py = (e.clientY ?? (e.touches && e.touches[0].clientY)) - rect.top;
+      const clientX = e.clientX ?? (e.touches && e.touches[0].clientX);
+      const clientY = e.clientY ?? (e.touches && e.touches[0].clientY);
+
+      if (clientX === undefined || clientY === undefined) return;
+
+      const px = clientX - rect.left;
+      const py = clientY - rect.top;
       const cx = rect.width / 2;
       const cy = rect.height / 2;
       const nx = (px - cx) / cx;
@@ -167,12 +169,12 @@ export default function IntroParasGSAP() {
   }, []);
 
   return (
-    <section className="px-6 pt-12 ">
+    <section className="px-6 pt-12">
       <h1 className="text-5xl mb-4 font-display font-extralight">About Me</h1>
 
-      <div className="relative min-h-[80vh]  text-gray-200 ">
-        <div className="absolute w-[28%] top-0 left-0">
-          <p ref={leftParaRef} className="whitespace-pre-wrap">
+      <div className="relative flex flex-col items-center gap-12 py-8 pt-0 lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-12 lg:gap-y-0 lg:min-h-[80vh] text-gray-200">
+        <div className="w-full max-w-md lg:w-auto lg:max-w-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2">
+          <p ref={leftParaRef} className="whitespace-pre-wrap text-lg">
             Hi I'm Shlok, a front-end / full-stack web developer who builds
             polished, responsive web experiences. I work primarily with React,
             Next.js and Tailwind, use GSAP for high-quality micro-motion, and
@@ -181,21 +183,12 @@ export default function IntroParasGSAP() {
           </p>
         </div>
 
-        <div className="absolute w-[28%] bottom-0 right-0">
-          <p ref={rightParaRef} className="whitespace-pre-wrap">
-            I design and ship production-ready sites, prototypes and small apps
-            from animated landing pages to MERN features and tooling. If you've
-            got a project, collaboration idea, or just want to say hi, check out
-            my projects on GitHub or reach out — let's build something useful
-            and beautiful.
-          </p>
-        </div>
-
-        {/* Interactive GSAP Card */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 [perspective:1200px]">
+        {/* Interactive GSAP Card - Mobile: full-width container, centered card. Desktop: spans the center columns/rows. */}
+        <div className="w-full flex justify-center items-center lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3 [perspective:1200px]">
           <div
             ref={wrapRef}
-            className="relative w-[400px] h-[520px] rounded-2xl overflow-visible"
+            // Card dimensions: max-w-xs on mobile, w-[400px] on large screens.
+            className="relative w-full max-w-xs h-[400px] sm:max-w-sm sm:h-[480px] lg:w-[400px] lg:h-[520px] rounded-2xl overflow-visible"
           >
             <div
               ref={shadowRef}
@@ -205,12 +198,12 @@ export default function IntroParasGSAP() {
 
             <div
               ref={cardRef}
-              className="relative w-full h-full p-4 overflow-hidden border border-gray-300  transform-gpu will-change-transform"
+              className="relative w-full h-full p-4 overflow-hidden border border-gray-300 transform-gpu will-change-transform"
               style={{ touchAction: "none" }}
             >
               <img
                 ref={imgRef}
-                src="https://images.unsplash.com/photo-1620122830785-a18b43585b44?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1200"
+                src="https://res.cloudinary.com/dkwdylyvs/image/upload/v1761150492/unnamed_dhvzap.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover transition-transform duration-500"
               />
@@ -224,6 +217,17 @@ export default function IntroParasGSAP() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right Paragraph - Mobile: takes full width. Desktop: positions at bottom-right. */}
+        <div className="w-full max-w-md lg:w-auto lg:max-w-none lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3">
+          <p ref={rightParaRef} className="whitespace-pre-wrap text-lg">
+            I design and ship production-ready sites, prototypes and small apps
+            from animated landing pages to MERN features and tooling. If you've
+            got a project, collaboration idea, or just want to say hi, check out
+            my projects on GitHub or reach out — let's build something useful
+            and beautiful.
+          </p>
         </div>
       </div>
     </section>

@@ -100,8 +100,8 @@ const Navbar = () => {
       ref={container}
       className="
       min-w-[200px]
-        fixed z-50 font-display top-6 left-1/2 transform -translate-x-1/2
-        bg-neutral-800/70  p-4 rounded-4xl /* Initial state: pill */
+        fixed z-50 font-display border border-neutral-500/50 top-6 left-1/2 transform -translate-x-1/2
+        bg-neutral-800/20  p-4 rounded-4xl /* Initial state: pill */
         overflow-hidden backdrop-blur-xl shadow-lg
         w-[120px] h-[72px] /* Initial state: dimensions */
         text-neutral-100 /* Light text on dark island */

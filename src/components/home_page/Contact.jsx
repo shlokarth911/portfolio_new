@@ -15,9 +15,9 @@ const Contact = () => {
         <div className="flex gap-3 ">
           <AnimatedButton
             text="Find me on LinkedIn"
-            link="https://www.linkedin.com/in/shlokarth911/"
+            link="https://www.linkedin.com/in/shlok-arth-08494a2b9/"
           />
-          <AnimatedButton text="Mail Me" link="mailto:shlokarth911@gmail.com" />
+          <AnimatedButton text="Mail Me" link="mailto:shlokarth7@gmail.com" />
         </div>
       </div>
     </div>

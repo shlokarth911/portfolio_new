@@ -153,7 +153,7 @@ const Projects = () => {
             ))}
 
             <div className="pt-2">
-              <AnimatedButton text={"See more"} to={"/projects"} />
+              <AnimatedButton text={"See more"} link={"/work"} />
             </div>
           </div>
 
