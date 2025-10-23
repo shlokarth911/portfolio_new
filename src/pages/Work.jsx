@@ -6,44 +6,41 @@ const workItems = [
   {
     title: "Gathr",
     category: "Development",
-    year: "2024",
+    year: "2025",
     imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=Gathr",
+    link: "https://github.com/shlokarth911/gathr",
   },
   {
-    title: "PortfolioHub",
+    title: "7-pixels",
     category: "Design & Dev",
+    year: "2025",
+    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=7-pixels",
+    link: "https://shlokarth911.github.io/7-pixels/",
+  },
+  {
+    title: "Safe Gas Guard",
+    category: "Development",
     year: "2024",
-    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=PortfolioHub",
+    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=Safe-Gas-Guard",
+    link: " https://shlokarth911.github.io/safe_gas_guard/",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Chatty",
     category: "Development",
-    year: "2023",
-    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=E-Commerce",
-  },
-  {
-    title: "Project Alpha",
-    category: "Branding",
-    year: "2023",
-    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=Project+Alpha",
-  },
-  {
-    title: "InnovateX",
-    category: "UI/UX Design",
-    year: "2022",
-    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=InnovateX",
-  },
-  {
-    title: "DataDash",
-    category: "Development",
-    year: "2022",
-    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=DataDash",
+    year: "2024",
+    imageUrl: "https://placehold.co/600x400/171717/FFFFFF?text=Chatty",
+    link: "https://github.com/shlokarth911/chatty",
   },
 ];
 
 // Reusable component for each work card
-const WorkCard = ({ imageUrl, title, category, year }) => (
-  <div className="bg-neutral-900/50 p-4 rounded-xl group overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+const WorkCard = ({ imageUrl, title, category, year, link }) => (
+  <div
+    onClick={() => {
+      window.open(link, "_blank");
+    }}
+    className="bg-neutral-900/50 p-4 rounded-xl group overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+  >
     <img
       src={imageUrl}
       alt={`Screenshot of ${title} project`}
@@ -84,6 +81,7 @@ const Work = () => {
                 category={item.category}
                 year={item.year}
                 imageUrl={item.imageUrl}
+                link={item.link}
               />
             ))}
           </div>
