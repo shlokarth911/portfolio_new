@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const TechStack = () => {
   // Modify the data
@@ -50,57 +50,94 @@ const TechStack = () => {
     },
   ];
 
+  // Track which card is "hovered" (active) — -1 means none.
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const containerRef = useRef(null);
+
+  // Click/tap outside to clear active state
+  useEffect(() => {
+    const handleDocClick = (e) => {
+      if (!containerRef.current) return;
+      if (!containerRef.current.contains(e.target)) {
+        setActiveIndex(-1);
+      }
+    };
+    document.addEventListener("pointerdown", handleDocClick);
+    return () => document.removeEventListener("pointerdown", handleDocClick);
+  }, []);
+
   return (
-    <div className="w-screen flex items-center justify-end flex-col pb-[2%] relative overflow-visible">
+    <div
+      ref={containerRef}
+      className="w-screen flex items-center justify-end flex-col pb-[2%] relative overflow-visible "
+    >
       {/* Header (stroked, large, translated like original) */}
-      <h1 className="header select-none pointer-events-none absolute left-1/2 transform -translate-x-1/2 top-0 translate-y-[25%] text-[12vw] font-display font-light leading-[0.9] text-neutral-300">
+      <h1 className="header select-none pointer-events-none absolute left-1/2 transform -translate-x-1/2 top-0 translate-y-[25%] text-[12vw] font-display font-light leading-[0.9] text-neutral-300 mix-blend-difference">
         TechStack
       </h1>
 
       {/* Grid container */}
-      <div className="mt-[20vh] w-[76%] md:w-[76%] sm:w-[90%] h-[70vh] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[0.5%]">
-        {socialsData.map((item, idx) => (
-          <button
-            key={idx}
-            className="group relative overflow-hidden  border border-[#333] p-[6%] flex flex-col justify-between items-start backdrop-blur-xl bg-transparent transition-all duration-500"
-            aria-label={item.title}
-          >
-            <span
-              aria-hidden
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full  border border-transparent transition-all duration-500 pointer-events-none z-10"
-              style={{ boxSizing: "border-box" }}
-            />
+      <div className="mt-[20vh] w-[76%] md:w-[76%] sm:w-[90%] h-[70vh] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[0.5%] backdrop-blur-base">
+        {socialsData.map((item, idx) => {
+          const isActive = activeIndex === idx;
+          return (
+            <div
+              key={idx}
+              aria-label={item.title}
+              aria-pressed={isActive}
+              // Add or remove the 'hover' class so CSS :hover styling can be reused
+              className={`group relative overflow-hidden border border-[#333] p-[6%] flex flex-col justify-between items-start backdrop-blur-xl bg-transparent transition-all duration-500 ${
+                isActive ? "hover" : ""
+              }`}
+              onMouseEnter={() => setActiveIndex(idx)}
+              onMouseLeave={() =>
+                setActiveIndex((cur) => (cur === idx ? -1 : cur))
+              }
+              onFocus={() => setActiveIndex(idx)}
+              onBlur={() => setActiveIndex((cur) => (cur === idx ? -1 : cur))}
+              // For touch devices: toggle on touch start / click
+              onTouchStart={(e) => {
+                // prevent immediate document pointerdown listener from clearing it
+                e.stopPropagation();
+                setActiveIndex((cur) => (cur === idx ? -1 : idx));
+              }}
+              onClick={(e) => {
+                // fallback for devices that translate tap to click
+                e.stopPropagation();
+                setActiveIndex((cur) => (cur === idx ? -1 : idx));
+              }}
+            >
+              <span
+                aria-hidden
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-transparent transition-all duration-500 pointer-events-none z-10 "
+                style={{ boxSizing: "border-box" }}
+              />
 
-            <h2 className="z-20 text-[28px] font-medium leading-tight mb-4">
-              {item.title}
-            </h2>
+              <h2 className="z-20 text-[28px] font-medium leading-tight mb-4 ">
+                {item.title}
+              </h2>
 
-            <div className="w-full flex flex-col items-start justify-start">
-              <p className="z-20 text-neutral-400 transform translate-y-full opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                {item.confidence}
-              </p>
-              <p className="z-20 text-neutral-400 transform translate-y-full opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                {item.experience}
-              </p>
+              <div className="w-full flex flex-col items-start justify-start mb-[6%]">
+                <p className="z-20 text-neutral-400 transform translate-y-full opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  {item.confidence}
+                </p>
+                <p className="z-20 text-neutral-400 transform translate-y-full opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  {item.experience}
+                </p>
+              </div>
+
+              <span
+                aria-hidden
+                className="absolute inset-0 rounded-md pointer-events-none z-0"
+                style={{ border: "1px solid transparent" }}
+              />
             </div>
-
-            {/* helper element to animate overlay border color/size on hover using group-hover classes via inline style tag below */}
-            <span
-              aria-hidden
-              className="absolute inset-0 rounded-md pointer-events-none z-0"
-              style={{ border: "1px solid transparent" }}
-            />
-          </button>
-        ))}
+          );
+        })}
       </div>
 
       {/* Responsive header font-size adjustments and overlay hover tweaks */}
       <style>{`
-        /* Responsive font-size adjustments to match your media queries:
-           - Default (desktop) = 12vw
-           - <=768px ~ 15vw (we make this at max-width 768)
-           - <=480px ~ 20vw
-        */
         @media (max-width: 768px) {
           .header { font-size: 15vw !important; }
         }
@@ -108,46 +145,33 @@ const TechStack = () => {
           .header { font-size: 20vw !important; }
         }
 
-        /* Match original overlay hover behavior:
-           - default overlay is full size with transparent border
-           - on hover: border-color -> #999, height -> 90%, width -> 95%
-        */
-        .group:hover > span.absolute.left-1\\/2 {
+        /* IMPORTANT: reuse hover styles for both :hover and our .hover class */
+        .group:hover > span.absolute.left-1\\/2,
+        .group.hover > span.absolute.left-1\\/2 {
           width: 95% !important;
           height: 90% !important;
           border-color: #999 !important;
         }
 
-        /* Title size responsivity to match original CSS:
-           default: 28px, <=768px: 24px, <=480px: 20px
-        */
+        /* Also reveal the info when the .hover class is present (touch) */
+        .group.hover p,
+        .group:focus p {
+          transform: translateY(0) !important;
+          opacity: 1 !important;
+        }
+
         @media (max-width: 768px) {
           .group h2 { font-size: 24px !important; }
         }
         @media (max-width: 480px) {
           .group h2 { font-size: 20px !important; }
-        }
-
-        /* For smallest screens: adjust grid to 1 column and spacing like original */
-        @media (max-width: 480px) {
-          .w-[76%] { width: 90% !important; } /* ensure container width shrinks on small screens */
+          .w-[76%] { width: 90% !important; }
           .grid { gap: 10px !important; }
         }
 
-        /* IMPORTANT: On touch devices (no hover + coarse pointer) show confidence & experience by default
-           without changing the desktop hover effects. */
+        /* keep desktop hover semantics for pointer-capable devices as well */
         @media (hover: none) and (pointer: coarse) {
-          .group p {
-            transform: translateY(0) !important;
-            opacity: 1 !important;
-          }
-          /* ensure overlay border change still works on touch focus */
-          .group:active > span.absolute.left-1\\/2,
-          .group:focus > span.absolute.left-1\\/2 {
-            width: 95% !important;
-            height: 90% !important;
-            border-color: #999 !important;
-          }
+          /* we don't force the p visible here anymore — touch toggles the class */
         }
       `}</style>
     </div>
